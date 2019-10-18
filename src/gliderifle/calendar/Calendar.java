@@ -20,23 +20,30 @@ public class Calendar {
 	}
 	
 	public static void main(String[] args) {
-	 
-		System.out.println("반복회수를 입력하세요:");
+		
+		final String PROMPT="cal> ";
+		System.out.print("반복회수를 입력하세요:");
 		
 		Scanner scanner = new Scanner(System.in);
 		Calendar cal = new Calendar();
 		
 		int repeatCount = scanner.nextInt();
-		int month;
+		int month, i=0;
 		
-		for(int i=0;i<repeatCount;i++) {
+		while(i<repeatCount) {
 			System.out.println("월을 입력하세요:");
+			System.out.print(PROMPT);
 			month = scanner.nextInt();		
-			
-			System.out.printf("Max day of %d is %d\n", month, cal.getMaxDaysOfMonth(month));
+			if(month==-1) {
+				break;
+			} else {
+				System.out.printf("Max day of %d is %d\n", month, cal.getMaxDaysOfMonth(month));
+			}
+			i++;
 		}		
 		
 		//cal.printSampleCalendar();
+		System.out.println("Bye~");
 		scanner.close();
 	}
 
